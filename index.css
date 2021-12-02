@@ -1,0 +1,184 @@
+.btn.submit {
+    background-color:  #b6f18e;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.btn.save {
+    background-color: #77f2f7;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.btn.clear {
+    background-color: #f384ea;
+    padding: .1rem .1rem;
+    border: 1px solid transparent;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+/*
+This file contains all styles needed for the middle form
+*/
+
+/*
+The main form container
+Padding for better view and space from border
+Border solid and color same as box shadow to make it look nicer
+Border radius for curves on corners like description picture
+Used box shadow to look nicer from https://getcssscan.com/css-box-shadow-examples
+Use white background reduce background opacity to help readability of inside elements
+Use flex display to make to columns of equal width with row direction for large screens
+Give minimum height for having enough space in each column
+*/
+.form {
+    padding: 1rem;
+    border: 1px rgba(0, 0, 0, 0.24) solid;
+    background-color: rgba(255, 255, 255, 0.3);;
+    display: flex;
+    flex-direction: row;
+    min-height: 300px;
+    min-width: 550px;
+}
+
+/*
+Make questions and response equal width columns
+Padding to look nicer and better seperation
+Use flex to stack up elements on top of each other
+*/
+.questions, .response {
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+Give direct children of each column padding for better seperation
+*/
+.questions > *, .response > * {
+    padding: .5rem;
+}
+
+/*
+Give equal height to main rows of response column
+note: Used $= to specify all main rows in response ending with --container
+*/
+.response > [class$=--container] {
+    height: 50%;
+}
+
+/*
+Give every row of the main row of response column equal length(there are 3 rows)
+to avoid crazy resizing when there is no response and when we get the response
+*/
+.response .saved_answer--container > * {
+    height: 33%;
+}
+
+/*
+Give saved answer row dashed border like it was in the description picture
+*/
+.response .saved_answer--container {
+    border: 1px dashed grey;
+}
+
+/*
+Give margin for male gender radio option
+*/
+.gender_selection--container div {
+    margin-bottom: 5px;
+}
+
+/*
+Display each button in one row with min width of buttons width
+*/
+.questions .button--container {
+    display: flex;
+    flex-direction: row;
+    width: min-content;
+}
+
+/*
+Give padding between gender and accuracy
+*/
+.response .prediction_result--container div {
+    padding: .6rem 0;
+}
+
+/*
+Give body fullscreen size with no margin and padding
+Add background image with repeat set to 0 and position in center and fixed while scrolling
+Set size of background to extend image by width and height cover the whole body
+*/
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: url('background.png') no-repeat center fixed;
+    background-color: rgb(150, 235, 150);
+    background-size: cover;
+    font-family: 'Courier';
+}
+
+/*
+The main container of forms in flex
+To center the contents horizentaly and vertically
+*/
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+Remove default margin of h2 since I used padding for them
+*/
+h2 {
+    margin: .5rem 0;
+}
+
+/*
+Give notification specific height and width to prevent from crazy resizing and transition
+Center text and give it some nice curved corners
+Set opacity to 0 to make it hidden
+Set transition on all properties and use it to show and hide the div with effects
+*/
+.notifications {
+    color: white;
+    text-align: center;
+    height: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5rem;
+    padding: .5rem;
+    opacity: 0;
+    transition: all ease .5s;
+    width: 350px;
+}
+
+/*
+Class to show notification when added
+*/
+.show {
+    opacity: .1;
+}
+
+/*
+Classes with different backgrounds for different situations
+*/
+.error {
+    background-color: tomato !important;
+}
+.success {
+    background-color: #0fcb94 !important;
+}
+.loading {
+    background-color: #6c757d !important;
+}
