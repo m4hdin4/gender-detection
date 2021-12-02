@@ -152,7 +152,7 @@ Set opacity to 0 to make it hidden
 Set transition on all properties and use it to show and hide the div with effects
 */
 .notifications {
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     height: 1rem;
     border: 1px solid transparent;
