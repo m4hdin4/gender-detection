@@ -167,7 +167,7 @@ Set transition on all properties and use it to show and hide the div with effect
 Class to show notification when added
 */
 .show {
-    opacity: .1;
+    opacity: 1;
 }
 
 /*
