@@ -158,7 +158,7 @@ Set transition on all properties and use it to show and hide the div with effect
     border: 1px solid transparent;
     border-radius: 5rem;
     padding: .5rem;
-    opacity: 0;
+    opacity: 1;
     transition: all ease .5s;
     width: 350px;
 }
@@ -175,10 +175,4 @@ Classes with different backgrounds for different situations
 */
 .error {
     background-color: tomato !important;
-}
-.success {
-    background-color: #0fcb94 !important;
-}
-.loading {
-    background-color: #6c757d !important;
 }
