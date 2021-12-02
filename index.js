@@ -36,7 +36,6 @@ async function showPredictionResult(result) {
         if(resolvedResult.gender){
             genderRadioInputs[0].checked = resolvedResult.gender == 'male';
             genderRadioInputs[1].checked = !genderRadioInputs[0].checked;
-            handleSuccess('Found a match in API database');
         } else {
             handleError('Did not find a match in API database');
         }
@@ -56,7 +55,6 @@ function saveGuess() {
     const name = fullNameInput.value;
     const gender = genderRadioInputs[0].checked ? 'male' : 'female';
     localStorage.setItem(name, gender);
-    handleSuccess('Record saved to local storage.')
 }
 
 // Fetches data from local storage based on input and changes the value of saved answer
@@ -70,7 +68,6 @@ function fetchLocalStorage() {
 function clearLocalStorage() {
     const name = fullNameInput.value;
     localStorage.removeItem(name);
-    handleSuccess('Record cleared from storage if existed.');
 }
 
 // Resets result in DOM to empty string
@@ -85,14 +82,6 @@ function handleError(error) {
     notification.innerText = error;
     notification.classList.add('show');
     notification.classList.add('error');
-    setTimeout(clearNotification, 2000);
-}
-
-// Handles and shows success clears after 2 seconds by adding classes
-function handleSuccess(msg) {
-    notification.innerText = msg;
-    notification.classList.add('show');
-    notification.classList.add('success');
     setTimeout(clearNotification, 2000);
 }
 
@@ -137,6 +126,7 @@ saveBtn.addEventListener('click', (e) => {
 clearBtn.addEventListener('click', (e) => {
     e.preventDefault();
     clearLocalStorage();
+    savedGender.innerText = '';
 });
 
 // Add eventListener on inputing of the fullname input

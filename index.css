@@ -83,7 +83,7 @@ to avoid crazy resizing when there is no response and when we get the response
 Give saved answer row dashed border like it was in the description picture
 */
 .response .saved_answer--container {
-    border: 1px dashed grey;
+    border: 2px grey;
 }
 
 /*
