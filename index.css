@@ -1,38 +1,6 @@
-.btn.submit {
-    background-color:  #b6f18e;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    cursor: pointer;
-}
-
-.btn.save {
-    background-color: #77f2f7;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    cursor: pointer;
-}
-
-.btn.clear {
-    background-color: #f384ea;
-    padding: .1rem .1rem;
-    border: 1px solid transparent;
-    border-radius: 2rem;
-    cursor: pointer;
-}
-
 /*
-This file contains all styles needed for the middle form
-*/
-
-/*
-The main form container
-Padding for better view and space from border
-Border solid and color same as box shadow to make it look nicer
-Border radius for curves on corners like description picture
-Used box shadow to look nicer from https://getcssscan.com/css-box-shadow-examples
-Use white background reduce background opacity to help readability of inside elements
-Use flex display to make to columns of equal width with row direction for large screens
-Give minimum height for having enough space in each column
+the main form flex direction set to row. this cause the question part and response part be on a row.
+padding is set to avoid from stiking the borders with texts
 */
 .form {
     padding: 1rem;
@@ -41,13 +9,11 @@ Give minimum height for having enough space in each column
     display: flex;
     flex-direction: row;
     min-height: 300px;
-    min-width: 550px;
+    min-width: 700px;
 }
 
 /*
-Make questions and response equal width columns
-Padding to look nicer and better seperation
-Use flex to stack up elements on top of each other
+the elements in question part are going to be under eatch other. and this part owns 50 percent of form.
 */
 .questions, .response {
     width: 50%;
@@ -64,37 +30,29 @@ Give direct children of each column padding for better seperation
 }
 
 /*
-Give equal height to main rows of response column
-note: Used $= to specify all main rows in response ending with --container
+gives all main rows class ended with --container a heigth of 50%.
 */
 .response > [class$=--container] {
     height: 50%;
 }
 
 /*
-Give every row of the main row of response column equal length(there are 3 rows)
-to avoid crazy resizing when there is no response and when we get the response
+owns 33% of its container
 */
 .response .saved_answer--container > * {
     height: 33%;
 }
 
-/*
-Give saved answer row dashed border like it was in the description picture
-*/
 .response .saved_answer--container {
     border: 2px grey;
 }
 
-/*
-Give margin for male gender radio option
-*/
 .gender_selection--container div {
     margin-bottom: 5px;
 }
 
 /*
-Display each button in one row with min width of buttons width
+display two buttons side by side horizontaly
 */
 .questions .button--container {
     display: flex;
@@ -103,16 +61,15 @@ Display each button in one row with min width of buttons width
 }
 
 /*
-Give padding between gender and accuracy
+Give spase between prediction and accuracy
 */
 .response .prediction_result--container div {
     padding: .6rem 0;
 }
 
 /*
-Give body fullscreen size with no margin and padding
-Add background image with repeat set to 0 and position in center and fixed while scrolling
-Set size of background to extend image by width and height cover the whole body
+make the background fullscreen. set the font and chhose a background color
+I choosed 2 layers for background. one an image and o color behind that.
 */
 body {
     width: 100vw;
@@ -126,8 +83,7 @@ body {
 }
 
 /*
-The main container of forms in flex
-To center the contents horizentaly and vertically
+centerize the main part and put them in vertical shape.
 */
 .main {
     width: 100%;
@@ -138,18 +94,37 @@ To center the contents horizentaly and vertically
     justify-content: center;
 }
 
-/*
-Remove default margin of h2 since I used padding for them
-*/
 h2 {
     margin: .5rem 0;
 }
 
+.btn.submit {
+    background-color:  #b6f18e;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.btn.save {
+    background-color: #77f2f7;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.btn.clear {
+    background-color: #f384ea;
+    padding: .1rem .1rem;
+    border: 1px solid transparent;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+
 /*
-Give notification specific height and width to prevent from crazy resizing and transition
-Center text and give it some nice curved corners
-Set opacity to 0 to make it hidden
-Set transition on all properties and use it to show and hide the div with effects
+set opacity to show the notifiacation. use width to control the width size. use transactoion to hide it after a little time.
 */
 .notifications {
     color: rgb(0, 0, 0);
@@ -158,21 +133,19 @@ Set transition on all properties and use it to show and hide the div with effect
     border: 1px solid transparent;
     border-radius: 5rem;
     padding: .5rem;
-    opacity: .1;
+    opacity: 1;
     transition: all ease .5s;
-    width: 350px;
+    width: 450px;
 }
 
 /*
-Class to show notification when added
+show notifications
 */
 .show {
-    opacity: .1;
+    opacity: 1;
 }
 
-/*
-Classes with different backgrounds for different situations
-*/
 .error {
     background-color: tomato !important;
 }
+
